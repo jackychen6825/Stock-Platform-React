@@ -22,7 +22,6 @@ const receiveCapStructure = data => ({
 export const getStockOpenCloseDaily = ticker => dispatch => {
     fetchStockOpenCloseDaily(ticker)
         .then(data => {
-            debugger
             //initialize variables
             const dates = []
             const opens = []
@@ -42,7 +41,6 @@ export const getStockOpenCloseDaily = ticker => dispatch => {
 export const getStockEarnings = ticker => dispatch => {
     fetchStockEarnings(ticker)
         .then(data => {
-            debugger
             //initialize variables 
             const dates = []
             const estimatedEPS = []
@@ -62,7 +60,6 @@ export const getStockEarnings = ticker => dispatch => {
 export const getStockCapitalStructure = ticker => dispatch => {
     fetchStockCapitalStructure(ticker)
         .then(data => {
-            debugger
             //initialize variables 
             const dates = []
             const assets = []
