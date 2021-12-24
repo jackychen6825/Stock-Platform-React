@@ -37,11 +37,14 @@ export default class Platform extends Component {
     render() {
         return (
             <div className='platform-container'>
+                <div className='warning'>
+                    Hello, due to API call restrictions, users can only search one stock per minute. Thanks!
+                </div>
                 <form className='stock-input-form'>
                     <div className='input-container'>
                         <div className='search-btns-container'>
                             <input type="text" placeholder={this.state.assetClass === 'stock' ? 'Enter a stock ticker' : 'Enter a cryptocurrency ticker'} id='search-stock' />
-                            <input type="submit" value="Search" onClick={this.onClick} className='search-btn'/>
+                            <button className="search-btn-2" onClick={this.onClick}><i className="fas fa-search fa-2x"></i></button>
                         </div>
                         <div className='switch-btn-container'> 
                             {this.state.assetClass === 'stock' ? <button className='switch-btn' onClick={this.handleSwitch}>Crypto</button> : <button className='switch-btn' onClick={this.handleSwitch}>Stock</button>}
