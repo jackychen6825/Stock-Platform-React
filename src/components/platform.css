@@ -60,12 +60,13 @@ table {
 .switch-btn {
     height: 47px;
     width: 130px;
-    border: 1px solid peachpuff;
+    border: 1px solid powderblue;
     border-radius: 5px;
-    background-color: peachpuff;
+    background-color:powderblue;
     color: white;
     padding: 5px;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     font-size: 18px;
     cursor: pointer;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
@@ -124,7 +125,7 @@ table {
 .warning {
    width: 100vw;
    height: 5vh;
-   background-color: peachpuff;
+   background-color: powderblue;
    color: white;
    display: flex;
    justify-content: center;
@@ -143,8 +144,9 @@ table {
     border-radius: 5px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
     cursor: pointer;
+
 }
 
 .fas.fa-search.fa-2x {
-    color:peachpuff;
+    color:powderblue;
 }

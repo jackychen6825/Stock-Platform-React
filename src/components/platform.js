@@ -38,7 +38,7 @@ export default class Platform extends Component {
         return (
             <div className='platform-container'>
                 <div className='warning'>
-                    Hello, due to API call restrictions, users can only search one stock per minute. Thanks!
+                    Hello, due to API call restrictions, users can only search one stock / cryptocurrency per minute. Thanks!
                 </div>
                 <form className='stock-input-form'>
                     <div className='input-container'>
@@ -47,7 +47,7 @@ export default class Platform extends Component {
                             <button className="search-btn-2" onClick={this.onClick}><i className="fas fa-search fa-2x"></i></button>
                         </div>
                         <div className='switch-btn-container'> 
-                            {this.state.assetClass === 'stock' ? <button className='switch-btn' onClick={this.handleSwitch}>Crypto</button> : <button className='switch-btn' onClick={this.handleSwitch}>Stock</button>}
+                            {this.state.assetClass === 'stock' ? <button className='switch-btn' onClick={this.handleSwitch}>Search Crypto</button> : <button className='switch-btn' onClick={this.handleSwitch}>Search Stock</button>}
                         </div>
                     </div>
                 </form>
