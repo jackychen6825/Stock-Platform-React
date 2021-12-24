@@ -5,6 +5,7 @@ import BalanceSheetContainer from './balance_sheet_container';
 import OpenCloseContainer from './crypto/open_close_container'
 import MarketCapContainer from './crypto/market_cap_container'
 import VolumeChartContainer from './crypto/volume_container'
+import FreeCashFlowContainer from './free_cash_flow_container'
 import './platform.css'
 
 export default class Platform extends Component {
@@ -53,6 +54,7 @@ export default class Platform extends Component {
                 </form>
                 {this.state.render && this.state.assetClass === 'stock' ? <PriceHistoryChartContainer ticker={this.state.ticker} /> : "" }
                 {this.state.render && this.state.assetClass === 'stock' ? <EarningsContainer ticker={this.state.ticker} /> : "" }
+                {this.state.render && this.state.assetClass === 'stock' ? <FreeCashFlowContainer ticker={this.state.ticker} /> : "" }
                 {this.state.render && this.state.assetClass === 'stock' ? <BalanceSheetContainer ticker={this.state.ticker} /> : "" }
                 {this.state.render && this.state.assetClass === 'crypto' ? <OpenCloseContainer ticker={this.state.ticker} /> : "" }
                 {this.state.render && this.state.assetClass === 'crypto' ? <MarketCapContainer ticker={this.state.ticker} /> : "" }

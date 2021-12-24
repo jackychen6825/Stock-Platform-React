@@ -1,8 +1,9 @@
-import { fetchStockOpenCloseDaily, fetchStockEarnings, fetchStockCapitalStructure } from "../util/stock_api_util"
+import { fetchStockOpenCloseDaily, fetchStockEarnings, fetchStockCapitalStructure, fetchFreeCashFlow } from "../util/stock_api_util"
 
 export const OPEN_CLOSE = 'OPEN_CLOSE'
 export const EARNINGS = 'EARNINGS'
 export const CAPITAL_STRUCTURE = 'CAPITAL_STRUCTURE'
+export const FCF = 'FCF'
 
 const receiveOpenClose = data => ({
     type: OPEN_CLOSE,
@@ -16,6 +17,11 @@ const receiveEarnings = data => ({
 
 const receiveCapStructure = data => ({
     type: CAPITAL_STRUCTURE, 
+    data
+})
+
+const receiveFreeCashFlow = data => ({
+    type: FCF, 
     data
 })
 
@@ -75,5 +81,27 @@ export const getStockCapitalStructure = ticker => dispatch => {
 
             const parsed = { dates, assets, liabilities, shareholderEquity }
             dispatch(receiveCapStructure(parsed))
+        })
+}
+
+export const getFreeCashFlow = ticker => dispatch => {
+    fetchFreeCashFlow(ticker)
+        .then(data => {
+            const dates = []
+            const freeCashFlow = []
+            const operatingCashflow = []
+            const capEx = []
+
+            for (const quartlyReport of data["quarterlyReports"]) {
+                dates.push(quartlyReport["fiscalDateEnding"])
+                freeCashFlow.push(
+                    parseFloat(quartlyReport["operatingCashflow"]) - parseFloat(quartlyReport["capitalExpenditures"])
+                )
+                operatingCashflow.push(quartlyReport["operatingCashflow"])
+                capEx.push(quartlyReport["capitalExpenditures"])
+            }
+
+            const parsed = { dates, freeCashFlow, operatingCashflow, capEx }
+            dispatch(receiveFreeCashFlow(parsed))
         })
 }
