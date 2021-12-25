@@ -18,8 +18,9 @@ export default class Earnings extends Component {
                         datasets: [{
                             label: 'Market Capitalization',
                             data: this.props.cryptoCurrency.marketCap.reverse(),
-                            borderColor: 'rgb(255, 99, 132)',
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)'
+                            borderColor: 'rgba(54, 162, 235, 0.5)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderWidth: 1
                         }],
                         labels: this.props.cryptoCurrency.dates.reverse()
                     }}    

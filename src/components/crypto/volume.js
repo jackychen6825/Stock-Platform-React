@@ -18,8 +18,9 @@ export default class VolumeChart extends Component {
                         datasets: [{
                             label: 'Volume (Weekly)',
                             data: this.props.cryptoCurrency.volumes.reverse(),
-                            borderColor: 'rgba(80, 39, 245, 0.38)',
-                            backgroundColor: 'rgba(80, 39, 245, 0.38)'
+                            borderColor: 'rgba(80, 39, 245, 0.5)',
+                            backgroundColor: 'rgba(80, 39, 245, 0.2)',
+                            borderWidth: 1
                         }],
                         labels: this.props.cryptoCurrency.dates.reverse()
                     }}    

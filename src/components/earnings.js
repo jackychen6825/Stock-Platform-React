@@ -28,13 +28,15 @@ export default class Earnings extends Component {
                         datasets: [{
                             label: 'Reported EPS (Quarterly)',
                             data: this.props.earnings.reportedEPS.reverse(),
-                            borderColor: 'rgb(255, 99, 132)',
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)'
+                            borderColor: 'rgba(255, 99, 132, 0.5)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderWidth: 1
                         }, {
                             label: 'Estimated EPS (Quarterly)',
                             data: this.props.earnings.estimatedEPS.reverse(),
-                            borderColor: 'rgb(54, 162, 235)',
-                            backgroundColor: 'rgb(54, 162, 235)'
+                            borderColor: 'rgba(54, 162, 235, 0.5)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderWidth: 1
                         }],
                         labels: this.props.earnings.dates.reverse()
                     }}    

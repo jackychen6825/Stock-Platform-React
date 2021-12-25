@@ -28,18 +28,18 @@ export default class BalanceSheet extends Component {
                         datasets: [{
                             label: 'Assets (Quarterly)',
                             data: this.props.balanceSheet.assets.reverse(),
-                            borderColor: 'rgb(255, 99, 132)',
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)'
+                            borderColor: 'rgba(255, 99, 132, 0.6)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)', 
                         }, {
                             label: 'Liabilites (Quarterly)',
                             data: this.props.balanceSheet.liabilities.reverse(),
-                            borderColor: 'rgb(54, 162, 235)',
-                            backgroundColor: 'rgb(54, 162, 235)'
+                            borderColor: 'rgba(54, 162, 235, 0.6)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
                         }, {
                             label: "Shareholder's Equity (Quarterly)",
                             data: this.props.balanceSheet.shareholderEquity.reverse(),
-                            borderColor: 'rgb(175,238,238)',
-                            backgroundColor: 'rgb(175,238,238)'
+                            borderColor: 'rgba(175, 238, 238, 0.6)',
+                            backgroundColor: 'rgba(175, 238, 238, 0.2)',
                         }],
                         labels: this.props.balanceSheet.dates.reverse()
                     }}    

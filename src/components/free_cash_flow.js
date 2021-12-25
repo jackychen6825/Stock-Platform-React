@@ -28,18 +28,18 @@ export default class FreeCashFlow extends Component {
                         datasets: [{
                             label: 'Free Cash Flow (Quarterly)',
                             data: this.props.freeCashFlow.freeCashFlow.reverse(),
-                            borderColor: 'rgb(255, 99, 132)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
                             backgroundColor: 'rgba(255, 99, 132, 0.2)'
                         }, {
                             label: 'Operating Cash Flow (Quarterly)',
                             data: this.props.freeCashFlow.operatingCashflow.reverse(),
-                            borderColor: 'rgb(54, 162, 235)',
-                            backgroundColor: 'rgb(54, 162, 235)'
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)'
                         }, {
                             label: 'Capital Expenditure (Quarterly)',
                             data: this.props.freeCashFlow.capEx.reverse(),
-                            borderColor: 'rgb(175,238,238)',
-                            backgroundColor: 'rgb(175,238,238)'
+                            borderColor: 'rgba(175, 238, 238, 1)',
+                            backgroundColor: 'rgba(175,238,238, 0.2)'
                         }],
                         labels: this.props.freeCashFlow.dates.reverse()
                     }}    
