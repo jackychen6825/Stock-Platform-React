@@ -26,12 +26,12 @@ export default class Earnings extends Component {
                 {this.props.earnings.dates ? <Bar 
                     data={{
                         datasets: [{
-                            label: 'Reported EPS',
+                            label: 'Reported EPS (Quarterly)',
                             data: this.props.earnings.reportedEPS.reverse(),
                             borderColor: 'rgb(255, 99, 132)',
                             backgroundColor: 'rgba(255, 99, 132, 0.2)'
                         }, {
-                            label: 'Estimated EPS',
+                            label: 'Estimated EPS (Quarterly)',
                             data: this.props.earnings.estimatedEPS.reverse(),
                             borderColor: 'rgb(54, 162, 235)',
                             backgroundColor: 'rgb(54, 162, 235)'

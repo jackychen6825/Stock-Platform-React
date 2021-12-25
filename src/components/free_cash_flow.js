@@ -26,17 +26,17 @@ export default class FreeCashFlow extends Component {
                 {this.props.freeCashFlow.dates ? <Bar 
                     data={{
                         datasets: [{
-                            label: 'Free Cash Flow',
+                            label: 'Free Cash Flow (Quarterly)',
                             data: this.props.freeCashFlow.freeCashFlow.reverse(),
                             borderColor: 'rgb(255, 99, 132)',
                             backgroundColor: 'rgba(255, 99, 132, 0.2)'
                         }, {
-                            label: 'Operating Cash Flow',
+                            label: 'Operating Cash Flow (Quarterly)',
                             data: this.props.freeCashFlow.operatingCashflow.reverse(),
                             borderColor: 'rgb(54, 162, 235)',
                             backgroundColor: 'rgb(54, 162, 235)'
                         }, {
-                            label: 'Capital Expenditure',
+                            label: 'Capital Expenditure (Quarterly)',
                             data: this.props.freeCashFlow.capEx.reverse(),
                             borderColor: 'rgb(175,238,238)',
                             backgroundColor: 'rgb(175,238,238)'
