@@ -208,7 +208,7 @@ table {
     border-radius: 15px;
     font-family: 'Roboto';
     font-weight: 300;
-    font-size: 14px;
+    font-size: 16px;
     padding-left: 20px;
     margin-right: 10px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
@@ -269,9 +269,9 @@ table {
 .close-x {
     position: absolute;
     top: 5px;
-    right: 5px;
+    right: 7px;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
+    font-size: 13px;
     color: red;
 }

@@ -9,28 +9,26 @@ export default class RacingBar extends Component {
             chart: { 
                 data: [], 
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
                     'rgba(255, 159, 64, 0.2)',
                     'rgba(255, 205, 86, 0.2)',
                     'rgba(75, 192, 192, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(201, 203, 207, 0.2)'
+                    'rgba(153, 102, 255, 0.2)'
                 ], 
                 borderColor: [
-                    'rgb(255, 99, 132)',
                     'rgb(255, 159, 64)',
                     'rgb(255, 205, 86)',
                     'rgb(75, 192, 192)',
                     'rgb(54, 162, 235)',
-                    'rgb(153, 102, 255)',
-                    'rgb(201, 203, 207)'
+                    'rgb(153, 102, 255)'
                 ], 
-                labels: []
+                labels: [this.props.stock1, this.props.stock2, this.props.stock3, this.props.stock4, this.props.stock5],
+                datasets: [],
             }
         }
 
         this.createDataFromProps = this.createDataFromProps.bind(this);
+        this.createDataFromState = this.createDataFromState.bind(this); 
         this.beginRace = this.beginRace.bind(this);
         this.sortData = this.sortData.bind(this);
     }
@@ -40,83 +38,177 @@ export default class RacingBar extends Component {
         getRacingBarData(stock1, stock2, stock3, stock4, stock5)
     }
 
-    sortData(data) {
-        const {count, stocks} = this.props //grabbing values from props - racing bar slice of state 
-        //initialize some constatnts to be converted into individual objects 
-        // debugger
-        const backgroundColor = this.state.chart.backgroundColor.slice(0, count);
-        const borderColor = this.state.chart.borderColor.slice(0, count);
-        const labels = this.state.chart.labels.slice(0, count)
-        const chartArray = [];
+    createDataFromState(monthIndex) {
 
-        for (let i = 0; i < labels.length; i++) {
-            //create a new object 
-            let individualStockBar = {};
-            individualStockBar["label"] = labels[i]
-            individualStockBar["backgroundColor"] = backgroundColor[i]
-            individualStockBar["borderColor"] = borderColor[i]
-            individualStockBar["data"] = data[i]
-            chartArray.push(individualStockBar)
+        const {count} = this.props;
+        const data = [];
+
+        for (let i = 0; i < count; i++) {
+            if (i === 0) {
+                data.push(this.state.chart.datasets[i][monthIndex])
+            } else if (i === 1) {
+                data.push(this.state.chart.datasets[i][monthIndex])
+            } else if (i === 2) {
+                data.push(this.state.chart.datasets[i][monthIndex])
+            } else if (i === 3) {
+                data.push(this.state.chart.datasets[i][monthIndex])
+            } else if (i === 4) {
+                data.push(this.state.chart.datasets[i][monthIndex])
+            }
         }
-    
-        const sorted = chartArray.sort((b, a) => {
-            return b.data - a.data //sorting it in descending order 
+
+        return data;
+    }
+
+    //count: 3 stock1: MSFT, stock2: TSLA, stock3: FB 
+    createDataFromProps(monthIndex) {
+        const { count, stock1, stock2, stock3, stock4, stock5, racingBar } = this.props;
+        const data = [];
+        for (let i = 1; i <= count; i++) {
+            if (i === 1) {
+                data.push(racingBar[stock1][monthIndex])
+            } else if (i === 2) {
+                data.push(racingBar[stock2][monthIndex])
+            } else if (i === 3) {
+                data.push(racingBar[stock3][monthIndex])
+            } else if (i === 4) {
+                data.push(racingBar[stock4][monthIndex])
+            } else if (i === 5) {
+                data.push(racingBar[stock5][monthIndex])
+            }
+        }
+        return data; 
+    }
+
+    alternativeSort(data) {
+        const {count} = this.props;
+        let backgroundColor = this.state.chart.backgroundColor.slice(0, count);
+        let borderColor = this.state.chart.borderColor.slice(0, count);
+        let labels = this.state.chart.labels.slice(0, count);
+
+        let chartArray = labels.map((label, index) => {
+            let individualBar = {}
+            individualBar['label'] = label;
+            individualBar['data'] = data[index];
+            individualBar['backgroundColor'] = backgroundColor[index];
+            individualBar['borderColor'] = borderColor[index]
+            return individualBar;
         })
 
-        //reform into arrays, now properly sorted 
-        const sortedLabels = []
-        const sortedData = []
-        const sortedBackgroundColors = []
-        const sortedBorderColors = []
+        let sorted = chartArray.sort((a, b) => a.data - b.data) //ascending order sorting with es6 syntax 
 
-        //sorted = [{},{},{}]
+        //reform into arrays, now properly sorted 
+        const sortedLabels = [];
+        const sortedData = [];
+        const sortedBackgroundColors = [];
+        const sortedBorderColors = [];
+
+        //sorted = [{},{},{}] -> sorted by ascending order 
         for (let j = 0; j < sorted.length; j++) {
             sortedLabels.push(sorted[j]['label'])
             sortedData.push(sorted[j]['data'])
             sortedBackgroundColors.push(sorted[j]['backgroundColor'])
             sortedBorderColors.push(sorted[j]['borderColor'])
         }
-
-        //return sorted things as an object 
         this.setState({ chart: { data: sortedData, labels: sortedLabels, backgroundColor: sortedBackgroundColors, borderColor: sortedBorderColors } }) 
     }
 
-    //count = number of stocks we are racing 
-    //racing bar: { count: 3, stocks: [], MSFT: [], TSLA: [], AMZN: [] ...}
-    createDataFromProps(round) {
-        const { count, stock1, stock2, stock3, stock4, stock5, racingBar } = this.props;
-        const data = [];
+    sortData(data) { 
+        const {count} = this.props 
+        let backgroundColor = this.state.chart.backgroundColor.slice(0, count);
+        let borderColor = this.state.chart.borderColor.slice(0, count);
+        let labels = this.state.chart.labels.slice(0, count);
+        let datasets = this.state.chart.datasets.slice(0, count);
+        const chartArray = [];
+
         for (let i = 0; i < count; i++) {
-            if (i === 0) {
-                data.push(racingBar[stock1][round])
-            } else if (i === 1) {
-                data.push(racingBar[stock2][round])
-            } else if (i === 2) {
-                data.push(racingBar[stock3][round])
-            } else if (i === 3) {
-                data.push(racingBar[stock4][round])
-            } else if (i === 4) {
-                data.push(racingBar[stock5][round])
-            }
+            let individualStockBar = {};
+            individualStockBar["label"] = labels[i]
+            individualStockBar["backgroundColor"] = backgroundColor[i]
+            individualStockBar["borderColor"] = borderColor[i]
+            individualStockBar["data"] = data[i]
+            individualStockBar["dataset"] = datasets[i]
+            chartArray.push(individualStockBar)
         }
-        
-        return data;
-    }
 
-    beginRace() {
-        const that = this;
+        //chart array = [{label: MSFT, backgroundColor: red, borderCorlor: red data:12},{label:TSLA, data:10 backgroundcolor: blue bordercolor: blue}]
+        let sorted = chartArray.sort((a, b) => a.data - b.data) //ascending order sorting with es6 syntax 
 
-        for (let round = 0; round < 12; round++) {
-            setTimeout(() => {
-                let data = that.createDataFromProps(round)
-                that.sortData(data)
-            }, round * 5000)
+        //reform into arrays, now properly sorted 
+        const sortedLabels = [];
+        const sortedData = [];
+        const sortedBackgroundColors = [];
+        const sortedBorderColors = [];
+        const sortedDatasets = [];
+
+        //sorted = [{},{},{}] -> sorted by ascending order 
+        for (let j = 0; j < sorted.length; j++) {
+            sortedLabels.push(sorted[j]['label'])
+            sortedData.push(sorted[j]['data'])
+            sortedBackgroundColors.push(sorted[j]['backgroundColor'])
+            sortedBorderColors.push(sorted[j]['borderColor'])
+            sortedDatasets.push(sorted[j]['dataset'])
         }
+        this.setState({ chart: { data: sortedData, labels: sortedLabels, backgroundColor: sortedBackgroundColors, borderColor: sortedBorderColors, datasets: sortedDatasets } }) 
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.racingBar !== prevProps.racingBar) {
-            this.beginRace()
+        const {racingBar, stock1, stock2, stock3, stock4, stock5} = this.props;
+        const datasets = [];
+        if (this.props.racingBar !== prevProps.racingBar) { //when the racing bar information from the api call sets in, call begin race to begin the race 
+            
+            if (stock1) {
+                datasets.push(racingBar[stock1])
+            } 
+
+            if (stock2) {
+                datasets.push(racingBar[stock2])
+            } 
+
+            if (stock3) {
+                datasets.push(racingBar[stock3])
+            } 
+
+            if (stock4) {
+                datasets.push(racingBar[stock4])
+            } 
+
+            if (stock5) {
+                datasets.push(racingBar[stock5])
+            } 
+
+            this.setState({ chart: { 
+                data: [], 
+                backgroundColor: [
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ], 
+                borderColor: [
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)'
+                ], 
+                labels: [this.props.stock1, this.props.stock2, this.props.stock3, this.props.stock4, this.props.stock5],
+                datasets,
+            }})
+
+            this.beginRace();
+        }
+    }
+
+    beginRace() {
+        const pointerToThis = this; //the class component RacingBar 
+
+        for (let round = 0; round < 12; round++) {
+            setTimeout(() => {
+                let data = pointerToThis.createDataFromState(round) //grabs the data array from props 
+                pointerToThis.sortData(data) //creates the sorted data and sets the state 
+            }, round * 3000)
         }
     }
 
@@ -128,7 +220,7 @@ export default class RacingBar extends Component {
                         data={{
                             labels: this.state.chart.labels, //labels for stock names - ticker
                             datasets: [{
-                                label: ["Nothing happening here :3"],
+                                label: [],
                                 data: this.state.chart.data,
                                 backgroundColor: this.state.chart.backgroundColor,
                                 borderColor: this.state.chart.borderColor,
