@@ -60,9 +60,9 @@ table {
 .switch-racing-btn {
     height: 47px;
     width: 130px;
-    border: 1px solid #9999ff;
+    border: 1px solid #B1A296;
     border-radius: 5px;
-    background-color:#9999ff;
+    background-color:#B1A296;
     color: white;
     padding: 5px;
     font-family: 'Merriweather', sans-serif;
@@ -75,9 +75,9 @@ table {
 .racing-form-btn-home {
     height: 47px;
     width: 160px;
-    border: 1px solid #9999ff;
+    border: 1px solid #B1A296;
     border-radius: 5px;
-    background-color:#9999ff;
+    background-color:#B1A296;
     color: white;
     padding: 5px;
     font-family: 'Merriweather', sans-serif;
@@ -91,9 +91,9 @@ table {
 .switch-btn {
     height: 47px;
     width: 130px;
-    border: 1px solid #9999ff;
+    border: 1px solid #B1A296;
     border-radius: 5px;
-    background-color:#9999ff;
+    background-color:#B1A296;
     color: white;
     padding: 5px;
     font-family: 'Merriweather', sans-serif;
@@ -177,7 +177,7 @@ table {
 .warning {
    width: 100vw;
    height: 4vh;
-   background-color: crimson;
+   background-color: #557A95;
    color: white;
    display: flex;
    justify-content: center;
@@ -201,7 +201,7 @@ table {
 }
 
 .fas.fa-search.fa-2x {
-    color:#9999ff;
+    color:#B1A296;
 }
 
 .input-div {
@@ -238,10 +238,10 @@ table {
 }
 
 .racing-form-btn {
-    background-color: #9999ff;
+    background-color: #B1A296;
     height: 44px;
     width: 100px;
-    border: 1px solid #9999ff;
+    border: 1px solid #B1A296;
     border-radius: 5px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
     cursor: pointer;
@@ -259,10 +259,10 @@ table {
 }
 
 .begin-race-btn-container button {
-    background-color: #9999ff;
+    background-color: #7395AE;
     height: 45px;
     width: 170px;
-    border: 1px solid #9999ff;
+    border: 1px solid #7395AE;
     border-radius: 5px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
     cursor: pointer;
@@ -308,15 +308,15 @@ table {
 
 .instructions-container {
     position: absolute;
-    left: 35%;
+    left: 32%;
     bottom: 50%;
     width: 700px;
     height: 200px;
     font-family: 'Merriweather', serif;
     font-size: 16px;
-    border: 1px solid #9999ff;
+    border: 1px solid #7395AE;
     border-radius: 5px;
-    background-color: #9999ff;
+    background-color: #7395AE;
     color: white;
     padding: 20px;
     display: flex;
@@ -328,7 +328,14 @@ table {
     height: 15%;
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid purple;
+    border-bottom: 1px solid rgba(0, 0, 255, 0.219);
+}
+
+.instructions-header-2 {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(70, 28, 4, 0.239);
 }
 
 .instructions-container div {
@@ -337,14 +344,14 @@ table {
 
 .instructions-explanation-container {
     position: absolute;
-    border: 1px solid #9999ff;
+    border: 1px solid #B1A296;
     border-radius: 5px;
-    bottom: 30vh;
+    bottom: 20vh;
     left: 26vw;
-    background-color: #9999ff;
+    background-color: #B1A296;
     color: white;
     font-family: "Merriweather", serif; 
-    height: 300px;
+    height: 400px;
     width: 900px;
     padding: 20px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
@@ -356,9 +363,11 @@ table {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    height: 40%;
 }
 
 .explanations-container {
+    height: 60%;
     width: 100%;
     display: flex;
     flex-wrap: wrap;

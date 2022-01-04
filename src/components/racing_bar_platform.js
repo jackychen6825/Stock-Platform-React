@@ -85,13 +85,13 @@ export default class RacingBarPlatform extends Component {
             return(
                 <div className='instructions-explanation-container'>
                     <div className='instructions-container-bonus'>
-                            <div className='instructions-header'>Instructions: </div> 
+                            <div className='instructions-header-2'>Instructions: </div> 
                             <div>1. Warning: Users can only race up to five stocks at a time </div> 
                             <div>2. Enter stock ticker and press the "Add Stock" button to enter stock  the race </div> 
                             <div>3. Remove any stock from the race by pressing the red X adjoining each stock </div> 
                     </div>
                     <div className='explanations-container'>
-                            <div className='instructions-header'>Explanation: </div> 
+                            <div className='instructions-header-2'>Explanation: </div> 
                             <div>1. The race will be displayed in a racing bar chart </div> 
                             <div>2. Each stock is racing based on its reported and estiamted earnings as a percentage </div> 
                             <div>3. The chart will cover 15 quaters of data for each stock </div> 
