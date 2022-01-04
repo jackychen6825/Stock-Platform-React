@@ -19,12 +19,13 @@ export default class Platform extends Component {
         this.onClick = this.onClick.bind(this);
         this.handleSwitch = this.handleSwitch.bind(this);
         this.handleSwitchToRace = this.handleSwitchToRace.bind(this);
+        this.generateInstructionsFromState = this.generateInstructionsFromState.bind(this);
     }
 
     onClick(e) {
         e.preventDefault()
         const ticker = document.getElementById('search-stock').value.toUpperCase()
-        this.setState({ ticker, render: true })
+        this.setState({ ticker, render: true, instructions: false })
     }
 
     handleSwitch(e) {
@@ -39,6 +40,29 @@ export default class Platform extends Component {
     handleSwitchToRace(e) {
         e.preventDefault()
         this.props.history.push("/racing") //render the racing component
+    }
+
+    generateInstructionsFromState() {
+        if (this.state.assetClass === 'stock' && !this.state.render) {
+            return(
+                <div className='instructions-container'>
+                        <div className='instructions-header'>Enter stock ticker and press the search icon to get information regarding the stock's: </div> 
+                        <div>1. Past 100 days opening and closing prices </div> 
+                        <div>2. Reported and estimated earnings per share </div> 
+                        <div>3. Free cash flow calculations </div> 
+                        <div>4. Balance sheet distribution </div> 
+                </div>
+            )
+        } else if (this.state.assetClass === 'crypto' && !this.state.render) {
+            return(
+                <div className='instructions-container'>
+                        <div className='instructions-header'>Enter crypto ticker and press the search icon to get information concerning:</div>
+                        <div>1. Past 100 days opening and closing prices </div>
+                        <div>2. Volumes</div>
+                        <div>3. Market Capitalizations</div>
+                </div>
+            )
+        }
     }
 
     render() {
@@ -56,10 +80,12 @@ export default class Platform extends Component {
 
                         <div className='switch-btn-container'> 
                             {this.state.assetClass === 'stock' ? <button className='switch-btn' onClick={this.handleSwitch}>Search Crypto</button> : <button className='switch-btn' onClick={this.handleSwitch}>Search Stock</button>}
-                            <button onClick={this.handleSwitchToRace} className='switch-racing-btn'>Stock Race</button>
+                            <button onClick={this.handleSwitchToRace} className='switch-racing-btn'>Bonus</button>
                         </div>
                     </div>
                 </form>
+                {this.generateInstructionsFromState()}
+
                 {this.state.render && this.state.assetClass === 'stock' ? <PriceHistoryChartContainer ticker={this.state.ticker} /> : "" }
                 {this.state.render && this.state.assetClass === 'stock' ? <EarningsContainer ticker={this.state.ticker} /> : "" }
                 {this.state.render && this.state.assetClass === 'stock' ? <FreeCashFlowContainer ticker={this.state.ticker} /> : "" }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Merriweather&family=Open+Sans:wght@300&family=Playfair+Display&family=Roboto:wght@300;500&display=swap');
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -49,9 +49,9 @@ table {
     height: 50px;
     border: 1px solid lightgrey;
     border-radius: 15px;
-    font-family: 'Roboto';
-    font-weight: 300;
-    font-size: 18px;
+    font-family: 'Merriweather', serif;
+    /* font-weight: 300; */
+    font-size: 16px;
     padding-left: 15px;
     margin-right: 10px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
@@ -60,35 +60,51 @@ table {
 .switch-racing-btn {
     height: 47px;
     width: 130px;
-    border: 1px solid powderblue;
+    border: 1px solid #9999ff;
     border-radius: 5px;
-    background-color:powderblue;
+    background-color:#9999ff;
     color: white;
     padding: 5px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 18px;
+    font-family: 'Merriweather', sans-serif;
+    /* font-weight: 300; */
+    font-size: 16px;
     cursor: pointer;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+}
+
+.racing-form-btn-home {
+    height: 47px;
+    width: 160px;
+    border: 1px solid #9999ff;
+    border-radius: 5px;
+    background-color:#9999ff;
+    color: white;
+    padding: 5px;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+    margin-right: 10px;
 }
 
 .switch-btn {
     height: 47px;
     width: 130px;
-    border: 1px solid powderblue;
+    border: 1px solid #9999ff;
     border-radius: 5px;
-    background-color:powderblue;
+    background-color:#9999ff;
     color: white;
     padding: 5px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Merriweather', sans-serif;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
 }
 
 .switch-btn-container {
-    width: 25%;
+    width: 18%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -160,15 +176,15 @@ table {
 
 .warning {
    width: 100vw;
-   height: 5vh;
-   background-color: powderblue;
+   height: 4vh;
+   background-color: crimson;
    color: white;
    display: flex;
    justify-content: center;
    align-items: center;
-   font-family: 'Roboto', sans-serif;
+   font-family: 'Merriweather', serif;
    font-weight: 300;
-   font-size: 18px;
+   font-size: 16px;
 }
 
 .search-btn-2 {
@@ -185,7 +201,7 @@ table {
 }
 
 .fas.fa-search.fa-2x {
-    color:powderblue;
+    color:#9999ff;
 }
 
 .input-div {
@@ -193,20 +209,27 @@ table {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.input-div div{
+    position: absolute;
+    right: 2vw;
 }
 
 .racing-form {
-    width: 95vw;
+    width: fit-content;
     display: flex;
     justify-content: center;
+    left: 40vw;
 }
 
 #racing-input {
-    width: 40vw;
+    width: 25vw;
     height: 40px;
     border: 1px solid lightgrey;
-    border-radius: 15px;
-    font-family: 'Roboto';
+    border-radius: 12px;
+    font-family: 'Merriweather', serif;
     font-weight: 300;
     font-size: 16px;
     padding-left: 20px;
@@ -215,15 +238,17 @@ table {
 }
 
 .racing-form-btn {
-    background-color: powderblue;
+    background-color: #9999ff;
     height: 44px;
     width: 100px;
-    border: 1px solid powderblue;
+    border: 1px solid #9999ff;
     border-radius: 5px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
     cursor: pointer;
     color: white;
-    font-size: 16px;
+    font-size: 15px;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
 }
 
 .begin-race-btn-container {
@@ -234,15 +259,17 @@ table {
 }
 
 .begin-race-btn-container button {
-    background-color: powderblue;
+    background-color: #9999ff;
     height: 45px;
     width: 170px;
-    border: 1px solid powderblue;
+    border: 1px solid #9999ff;
     border-radius: 5px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
     cursor: pointer;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
 }
 
 .stocks-display-container {
@@ -264,6 +291,9 @@ table {
     justify-content: center;
     align-items: center;
     position: relative;
+    font-family: 'Merriweather', serif;
+    color: #9999ff;
+    font-size: 18px;
 }
 
 .close-x {
@@ -274,4 +304,70 @@ table {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
     color: red;
+}
+
+.instructions-container {
+    position: absolute;
+    left: 35%;
+    bottom: 50%;
+    width: 700px;
+    height: 200px;
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    border: 1px solid #9999ff;
+    border-radius: 5px;
+    background-color: #9999ff;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+}
+
+.instructions-header {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid purple;
+}
+
+.instructions-container div {
+    width: 100%;
+}
+
+.instructions-explanation-container {
+    position: absolute;
+    border: 1px solid #9999ff;
+    border-radius: 5px;
+    bottom: 30vh;
+    left: 26vw;
+    background-color: #9999ff;
+    color: white;
+    font-family: "Merriweather", serif; 
+    height: 300px;
+    width: 900px;
+    padding: 20px;
+    box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.instructions-container-bonus {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.explanations-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.instructions-container-bonus div {
+    width: 100%;
+}
+
+.explanations-container div {
+    width: 100%;
 }

@@ -20,6 +20,8 @@ export default class RacingBarPlatform extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.clear = this.clear.bind(this)
+        this.returnHome = this.returnHome.bind(this)
+        this.generateInstructionsFromState = this.generateInstructionsFromState.bind(this)
     }
 
     handleStockAddition(e) {
@@ -69,25 +71,60 @@ export default class RacingBarPlatform extends Component {
         this.setState({ ticker: e.target.value })
     }
 
+    returnHome(e) {
+        e.preventDefault()
+        this.props.history.push("/")
+    }
+
+    componentDidMount() {
+        // window.alert("The bonus feature is a racing bar chart that races based on the percentage of over/under performing market estimates of quarterly earnings for the last year")
+    }
+
+    generateInstructionsFromState() {
+        if (!this.state.render) {
+            return(
+                <div className='instructions-explanation-container'>
+                    <div className='instructions-container-bonus'>
+                            <div className='instructions-header'>Instructions: </div> 
+                            <div>1. Warning: Users can only race up to five stocks at a time </div> 
+                            <div>2. Enter stock ticker and press the "Add Stock" button to enter stock  the race </div> 
+                            <div>3. Remove any stock from the race by pressing the red X adjoining each stock </div> 
+                    </div>
+                    <div className='explanations-container'>
+                            <div className='instructions-header'>Explanation: </div> 
+                            <div>1. The race will be displayed in a racing bar chart </div> 
+                            <div>2. Each stock is racing based on its reported and estiamted earnings as a percentage </div> 
+                            <div>3. The chart will cover 15 quaters of data for each stock </div> 
+                            <div>4. Each stock's position in the race is a function of its earnings performance relative to others </div> 
+                            <div>5. The highest performing stock of each quarter will be at the top </div> 
+                    </div>
+                </div>
+            )
+        } 
+    }
 
     render() {
         return (
             <div className='racing-platform'>
                 <div className='warning'>
-                    Hello, due to API call restrictions, users can only race stocks once per minute. Thanks!
+                    Due to API restrictions, users can only race once per minute. 
                 </div>
                 <div className='input-div'>
                     <form className='racing-form'>
                         <input 
                             type="text" 
-                            placeholder='Enter a stock to add to the race'
+                            placeholder='Enter a stock ticker to add to the race'
                             id='racing-input'
                             value={this.state.ticker}
                             onChange={this.handleChange}
                         />
                         <button onClick={this.handleStockAddition} className='racing-form-btn'>Add Stock</button>
                     </form>
+                    <div>
+                        <button onClick={this.returnHome} className='racing-form-btn-home' >Return Home</button>
+                    </div>
                 </div>
+                {this.generateInstructionsFromState()}
                 <div className='stocks-display-container'>
                     {this.state.stock1 ? <div className='stock-text'>{this.state.stock1}<div onClick={() => this.handleClose("stock1")} className='close-x'>X</div></div> : ""}
                     {this.state.stock2 ? <div className='stock-text'>{this.state.stock2}<div onClick={() => this.handleClose("stock2")} className='close-x'>X</div></div> : ""}
