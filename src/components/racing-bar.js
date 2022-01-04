@@ -6,32 +6,33 @@ export default class RacingBar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: [],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(201, 203, 207, 0.2)'
-
-            ],
-            borderColor: [
-                'rgb(255, 99, 132)',
-                'rgb(255, 159, 64)',
-                'rgb(255, 205, 86)',
-                'rgb(75, 192, 192)',
-                'rgb(54, 162, 235)',
-                'rgb(153, 102, 255)',
-                'rgb(201, 203, 207)'
-            ],
-            labels: [],
-            race: false,
+            chart: { 
+                data: [], 
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                ], 
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)'
+                ], 
+                labels: []
+            }
         }
 
-        this.createDataFromProps = this.createDataFromProps.bind(this)
-        this.beginRace = this.beginRace.bind(this)
+        this.createDataFromProps = this.createDataFromProps.bind(this);
+        this.beginRace = this.beginRace.bind(this);
+        this.sortData = this.sortData.bind(this);
     }
 
     componentDidMount() {
@@ -42,9 +43,10 @@ export default class RacingBar extends Component {
     sortData(data) {
         const {count, stocks} = this.props //grabbing values from props - racing bar slice of state 
         //initialize some constatnts to be converted into individual objects 
-        const backgroundColor = this.state.backgroundColor.slice(0, count);
-        const borderColor = this.state.borderColor.slice(0, count);
-        const labels = stocks.slice(0, count)
+        // debugger
+        const backgroundColor = this.state.chart.backgroundColor.slice(0, count);
+        const borderColor = this.state.chart.borderColor.slice(0, count);
+        const labels = this.state.chart.labels.slice(0, count)
         const chartArray = [];
 
         for (let i = 0; i < labels.length; i++) {
@@ -57,7 +59,26 @@ export default class RacingBar extends Component {
             chartArray.push(individualStockBar)
         }
     
-        const sorted 
+        const sorted = chartArray.sort((b, a) => {
+            return b.data - a.data //sorting it in descending order 
+        })
+
+        //reform into arrays, now properly sorted 
+        const sortedLabels = []
+        const sortedData = []
+        const sortedBackgroundColors = []
+        const sortedBorderColors = []
+
+        //sorted = [{},{},{}]
+        for (let j = 0; j < sorted.length; j++) {
+            sortedLabels.push(sorted[j]['label'])
+            sortedData.push(sorted[j]['data'])
+            sortedBackgroundColors.push(sorted[j]['backgroundColor'])
+            sortedBorderColors.push(sorted[j]['borderColor'])
+        }
+
+        //return sorted things as an object 
+        this.setState({ chart: { data: sortedData, labels: sortedLabels, backgroundColor: sortedBackgroundColors, borderColor: sortedBorderColors } }) 
     }
 
     //count = number of stocks we are racing 
@@ -78,16 +99,24 @@ export default class RacingBar extends Component {
                 data.push(racingBar[stock5][round])
             }
         }
+        
         return data;
     }
 
     beginRace() {
         const that = this;
-        this.setState({ race: true })
+
         for (let round = 0; round < 12; round++) {
             setTimeout(() => {
-                that.setState({ data: that.createDataFromProps(round) })
-            }, round * 2000)
+                let data = that.createDataFromProps(round)
+                that.sortData(data)
+            }, round * 5000)
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.racingBar !== prevProps.racingBar) {
+            this.beginRace()
         }
     }
 
@@ -95,30 +124,14 @@ export default class RacingBar extends Component {
         const {racingBar} = this.props;
         return (
             <div className='racing-bar-container'>
-                {racingBar.stocks && !this.state.race ? this.beginRace() : "" }
                 {racingBar.stocks ? <Bar 
                         data={{
-                            labels: racingBar.stocks, //labels for stock names - ticker
+                            labels: this.state.chart.labels, //labels for stock names - ticker
                             datasets: [{
                                 label: ["Nothing happening here :3"],
-                                data: this.state.data,
-                                backgroundColor: [ 
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)',
-                                    'rgba(255, 205, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(201, 203, 207, 0.2)'],
-                                borderColor: [
-                                    'rgb(255, 99, 132)',
-                                    'rgb(255, 159, 64)',
-                                    'rgb(255, 205, 86)',
-                                    'rgb(75, 192, 192)',
-                                    'rgb(54, 162, 235)',
-                                    'rgb(153, 102, 255)',
-                                    'rgb(201, 203, 207)'    
-                                ],
+                                data: this.state.chart.data,
+                                backgroundColor: this.state.chart.backgroundColor,
+                                borderColor: this.state.chart.borderColor,
                                 borderWidth: 1
                             }], 
                         }}
