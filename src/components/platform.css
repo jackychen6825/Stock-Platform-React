@@ -57,6 +57,21 @@ table {
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
 }
 
+.switch-racing-btn {
+    height: 47px;
+    width: 130px;
+    border: 1px solid powderblue;
+    border-radius: 5px;
+    background-color:powderblue;
+    color: white;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+}
+
 .switch-btn {
     height: 47px;
     width: 130px;
@@ -70,6 +85,13 @@ table {
     font-size: 18px;
     cursor: pointer;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+}
+
+.switch-btn-container {
+    width: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .input-container {
@@ -86,10 +108,24 @@ table {
     align-items: center;
 }
 
+.search-btns-container {
+    position: relative;
+}
+
 .platform-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.racing-bar-container {
+    width: 95vw;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+    margin: 10px;
+    background-color: white;
+    /* transition: box-shadow 1s, width 1s, height 1s; */
 }
 
 .price-history-chart-container {
@@ -144,9 +180,98 @@ table {
     border-radius: 5px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
     cursor: pointer;
-
+    position: absolute;
+    top: 4px;
 }
 
 .fas.fa-search.fa-2x {
     color:powderblue;
+}
+
+.input-div {
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.racing-form {
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+}
+
+#racing-input {
+    width: 40vw;
+    height: 40px;
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 14px;
+    padding-left: 20px;
+    margin-right: 10px;
+    box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+}
+
+.racing-form-btn {
+    background-color: powderblue;
+    height: 44px;
+    width: 100px;
+    border: 1px solid powderblue;
+    border-radius: 5px;
+    box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
+
+.begin-race-btn-container {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.begin-race-btn-container button {
+    background-color: powderblue;
+    height: 45px;
+    width: 170px;
+    border: 1px solid powderblue;
+    border-radius: 5px;
+    box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+
+.stocks-display-container {
+    height: 6vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stock-text {
+    margin-left: 10px;
+    height: 90%;
+    width: 8%;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.close-x {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: red;
 }

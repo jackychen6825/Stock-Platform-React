@@ -18,6 +18,7 @@ export default class Platform extends Component {
         }
         this.onClick = this.onClick.bind(this);
         this.handleSwitch = this.handleSwitch.bind(this);
+        this.handleSwitchToRace = this.handleSwitchToRace.bind(this);
     }
 
     onClick(e) {
@@ -29,10 +30,15 @@ export default class Platform extends Component {
     handleSwitch(e) {
         e.preventDefault()
         if (this.state.assetClass === 'stock') {
-            this.setState({ assetClass: 'crypto', render: false })
+            this.setState({ assetClass: 'crypto', render: false, ticker: "" })
         } else if (this.state.assetClass === 'crypto') {
-            this.setState({ assetClass: 'stock', render: false })
+            this.setState({ assetClass: 'stock', render: false, ticker: "" })
         }
+    }
+
+    handleSwitchToRace(e) {
+        e.preventDefault()
+        this.props.history.push("/racing") //render the racing component
     }
 
     render() {
@@ -47,8 +53,10 @@ export default class Platform extends Component {
                             <input type="text" placeholder={this.state.assetClass === 'stock' ? 'Enter a stock ticker' : 'Enter a cryptocurrency ticker'} id='search-stock' />
                             <button className="search-btn-2" onClick={this.onClick}><i className="fas fa-search fa-2x"></i></button>
                         </div>
+
                         <div className='switch-btn-container'> 
                             {this.state.assetClass === 'stock' ? <button className='switch-btn' onClick={this.handleSwitch}>Search Crypto</button> : <button className='switch-btn' onClick={this.handleSwitch}>Search Stock</button>}
+                            <button onClick={this.handleSwitchToRace} className='switch-racing-btn'>Stock Race</button>
                         </div>
                     </div>
                 </form>
