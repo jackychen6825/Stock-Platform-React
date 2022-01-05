@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { Bar } from 'react-chartjs-2'
 
-
 export default class RacingBar extends Component {
     constructor(props) {
         super(props)
-       
+        
         //reference the chart
         this.reference = React.createRef();
         this.datasets = [];
@@ -66,7 +65,7 @@ export default class RacingBar extends Component {
         }
 
         //chart array = [{label: MSFT, backgroundColor: red, borderCorlor: red data:12},{label:TSLA, data:10 backgroundcolor: blue bordercolor: blue}]
-        let sorted = chartArray.sort((a, b) => a.data - b.data) //ascending order sorting with es6 syntax 
+        let sorted = chartArray.sort((a, b) => b.data - a.data) //ascending order sorting with es6 syntax 
 
         //reform into arrays, now properly sorted 
         const sortedLabels = [];
@@ -138,7 +137,7 @@ export default class RacingBar extends Component {
         const { racingBar, stock1, stock2, stock3, stock4, stock5 } = this.props;
         return (
             <div className='racing-bar-container'>
-                {racingBar.stocks ? <Bar 
+                {racingBar.stocks ? <Bar
                         ref={this.reference}
                         data={{
                             labels: [stock1, stock2, stock3, stock4, stock5], //labels for stock names - ticker
