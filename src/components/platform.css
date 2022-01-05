@@ -48,13 +48,14 @@ table {
     width: 20vw;
     height: 50px;
     border: 1px solid lightgrey;
-    border-radius: 15px;
+    border-radius: 5px;
     font-family: 'Merriweather', serif;
-    /* font-weight: 300; */
     font-size: 16px;
     padding-left: 15px;
-    margin-right: 10px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0
 }
 
 .switch-racing-btn {
@@ -188,20 +189,24 @@ table {
 }
 
 .search-btn-2 {
-    margin-left: 10px;
-    background-color: white;
-    height: 47px;
+    background-color: #B1A296;
+    height: 55px;
     width: 80px;
-    border: 1px solid lightgray;
+    border: 1px solid #B1A296;
     border-radius: 5px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+    /* box-shadow: 0px 8px 7px -5px rgba(0,0,0,0.51); */
     cursor: pointer;
     position: absolute;
-    top: 4px;
+    margin-left: 0px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+
 }
 
 .fas.fa-search.fa-2x {
-    color:#B1A296;
+    color:white;
 }
 
 .input-div {
@@ -228,13 +233,15 @@ table {
     width: 25vw;
     height: 40px;
     border: 1px solid lightgrey;
-    border-radius: 12px;
+    border-radius: 5px;
     font-family: 'Merriweather', serif;
     font-weight: 300;
     font-size: 16px;
     padding-left: 20px;
-    margin-right: 10px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0
 }
 
 .racing-form-btn {
@@ -249,6 +256,9 @@ table {
     font-size: 15px;
     font-family: 'Merriweather', serif;
     font-weight: 400;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
 }
 
 .begin-race-btn-container {
