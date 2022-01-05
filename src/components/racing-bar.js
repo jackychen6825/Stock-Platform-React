@@ -24,12 +24,14 @@ export default class RacingBar extends Component {
                 ], 
                 labels: [this.props.stock1, this.props.stock2, this.props.stock3, this.props.stock4, this.props.stock5],
                 datasets: [],
-            }
+            }, 
+            timestamp: "",
         }
 
         this.createDataFromState = this.createDataFromState.bind(this); 
         this.beginRace = this.beginRace.bind(this);
         this.sortData = this.sortData.bind(this);
+        this.manageTimestamp = this.manageTimestamp.bind(this); 
     }
 
     componentDidMount() {
@@ -37,22 +39,22 @@ export default class RacingBar extends Component {
         getRacingBarData(stock1, stock2, stock3, stock4, stock5)
     }
 
-    createDataFromState(monthIndex) {
+    createDataFromState(round) {
 
         const {count} = this.props;
         const data = [];
 
         for (let i = 0; i < count; i++) {
             if (i === 0) {
-                data.push(this.state.chart.datasets[i][monthIndex])
+                data.push(this.state.chart.datasets[i][round])
             } else if (i === 1) {
-                data.push(this.state.chart.datasets[i][monthIndex])
+                data.push(this.state.chart.datasets[i][round])
             } else if (i === 2) {
-                data.push(this.state.chart.datasets[i][monthIndex])
+                data.push(this.state.chart.datasets[i][round])
             } else if (i === 3) {
-                data.push(this.state.chart.datasets[i][monthIndex])
+                data.push(this.state.chart.datasets[i][round])
             } else if (i === 4) {
-                data.push(this.state.chart.datasets[i][monthIndex])
+                data.push(this.state.chart.datasets[i][round])
             }
         }
 
@@ -98,29 +100,57 @@ export default class RacingBar extends Component {
         this.setState({ chart: { data: sortedData, labels: sortedLabels, backgroundColor: sortedBackgroundColors, borderColor: sortedBorderColors, datasets: sortedDatasets } }) 
     }
 
+    manageTimestamp(round) {
+        const timestamps = [
+            '2017 Q1', 
+            '2017 Q2', 
+            '2017 Q3', 
+            '2017 Q4', 
+            '2018 Q1', 
+            '2018 Q2', 
+            '2018 Q3', 
+            '2018 Q4', 
+            '2019 Q1', 
+            '2019 Q2', 
+            '2019 Q3', 
+            '2019 Q4', 
+            '2020 Q1', 
+            '2020 Q2', 
+            '2020 Q3', 
+            '2020 Q4', 
+            '2021 Q1', 
+            '2021 Q2', 
+            '2021 Q3', 
+            '2021 Q4', 
+        ];
+
+        this.setState({ timestamps: timestamps[round] })
+    }
+
+
     componentDidUpdate(prevProps) {
         const {racingBar, stock1, stock2, stock3, stock4, stock5} = this.props;
         const datasets = [];
         if (this.props.racingBar !== prevProps.racingBar) { //when the racing bar information from the api call sets in, call begin race to begin the race 
             
             if (stock1) {
-                datasets.push(racingBar[stock1])
+                datasets.push(racingBar[stock1].reverse())
             } 
 
             if (stock2) {
-                datasets.push(racingBar[stock2])
+                datasets.push(racingBar[stock2].reverse())
             } 
 
             if (stock3) {
-                datasets.push(racingBar[stock3])
+                datasets.push(racingBar[stock3].reverse())
             } 
 
             if (stock4) {
-                datasets.push(racingBar[stock4])
+                datasets.push(racingBar[stock4].reverse())
             } 
 
             if (stock5) {
-                datasets.push(racingBar[stock5])
+                datasets.push(racingBar[stock5].reverse())
             } 
 
             this.setState({ chart: { 
