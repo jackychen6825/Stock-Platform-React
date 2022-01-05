@@ -69,7 +69,7 @@ export default class Platform extends Component {
         return (
             <div className='platform-container'>
                 <div className='warning'>
-                    Hello, due to API call restrictions, users can only search one stock / cryptocurrency per minute. Thanks!
+                    Hello, due to API  restrictions, users must wait one minute between searchs and races. Thanks!
                 </div>
                 <form className='stock-input-form'>
                     <div className='input-container'>

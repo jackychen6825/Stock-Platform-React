@@ -136,13 +136,12 @@ table {
 }
 
 .racing-bar-container {
-    width: 95vw;
+    width: 98vw;
     border: 1px solid lightgrey;
     border-radius: 10px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
     margin: 10px;
     background-color: white;
-    /* transition: box-shadow 1s, width 1s, height 1s; */
 }
 
 .price-history-chart-container {
@@ -394,7 +393,7 @@ table {
 .timestamp-container {
     position: absolute;
     top: 35vh;
-    right: 6vw;
+    right: 2vw;
     font-family: "Merriweather", serif;
     font-size: 30px;
     z-index: 10;
