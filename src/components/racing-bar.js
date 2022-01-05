@@ -204,11 +204,11 @@ export default class RacingBar extends Component {
     beginRace() {
         const pointerToThis = this; //the class component RacingBar 
 
-        for (let round = 0; round < 12; round++) {
+        for (let round = 0; round < 20; round++) {
             setTimeout(() => {
                 let data = pointerToThis.createDataFromState(round) //grabs the data array from props 
                 pointerToThis.sortData(data) //creates the sorted data and sets the state 
-            }, round * 3000)
+            }, round * 2000)
         }
     }
 
@@ -220,7 +220,7 @@ export default class RacingBar extends Component {
                         data={{
                             labels: this.state.chart.labels, //labels for stock names - ticker
                             datasets: [{
-                                label: [],
+                                label: ["Earning Suprise (%)"],
                                 data: this.state.chart.data,
                                 backgroundColor: this.state.chart.backgroundColor,
                                 borderColor: this.state.chart.borderColor,

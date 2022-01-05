@@ -58,8 +58,8 @@ export default class Platform extends Component {
                 <div className='instructions-container'>
                         <div className='instructions-header'>Enter crypto ticker and press the search icon to get information concerning:</div>
                         <div>1. Past 100 days opening and closing prices </div>
-                        <div>2. Volumes</div>
-                        <div>3. Market Capitalizations</div>
+                        <div>2. Market Capitalizations</div>
+                        <div>3. Volumes</div>
                 </div>
             )
         }
