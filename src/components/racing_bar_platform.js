@@ -95,9 +95,9 @@ export default class RacingBarPlatform extends Component {
                             <div className='instructions-header-2'>Explanation: </div> 
                             <div>1. The race will be displayed in a racing bar chart </div> 
                             <div>2. Each stock is racing based on its reported and estiamted earnings as a percentage </div> 
-                            <div>3. The chart will cover 15 quaters of data for each stock </div> 
+                            <div>3. The chart will cover 20 quaters (5 years) of data for each stock </div> 
                             <div>4. Each stock's position in the race is a function of its earnings performance relative to others </div> 
-                            <div>5. The highest performing stock of each quarter will be at the top </div> 
+                            <div>5. The highest performing stock of each quarter will be at the bottom </div> 
                     </div>
                 </div>
             )

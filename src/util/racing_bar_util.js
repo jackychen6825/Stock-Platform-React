@@ -3,8 +3,6 @@ const API_KEY = 'P1DMDN3WM6XI3J4E';
 export const fetchRacingBarData = (stock1, stock2, stock3, stock4, stock5) => {
     const promises = [];
 
-    https://www.alphavantage.co/query?function=EARNINGS&symbol=IBM&apikey=demo
-
     if (stock1) {
         promises.push(fetch(`https://www.alphavantage.co/query?function=EARNINGS&symbol=${stock1}&apikey=${API_KEY}`))
     }

@@ -20,12 +20,17 @@ export default class Platform extends Component {
         this.handleSwitch = this.handleSwitch.bind(this);
         this.handleSwitchToRace = this.handleSwitchToRace.bind(this);
         this.generateInstructionsFromState = this.generateInstructionsFromState.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     onClick(e) {
         e.preventDefault()
         const ticker = document.getElementById('search-stock').value.toUpperCase()
         this.setState({ ticker, render: true, instructions: false })
+    }
+
+    handleChange(e) {
+        this.setState({ ticker: e.target.value })
     }
 
     handleSwitch(e) {
@@ -74,7 +79,13 @@ export default class Platform extends Component {
                 <form className='stock-input-form'>
                     <div className='input-container'>
                         <div className='search-btns-container'>
-                            <input type="text" placeholder={this.state.assetClass === 'stock' ? 'Enter a stock ticker' : 'Enter a cryptocurrency ticker'} id='search-stock' />
+                            <input 
+                                type="text" 
+                                placeholder={this.state.assetClass === 'stock' ? 'Enter a stock ticker' : 'Enter a cryptocurrency ticker'}
+                                id='search-stock'
+                                value={this.state.ticker}
+                                onChange={this.handleChange}
+                                />
                             <button className="search-btn-2" onClick={this.onClick}><i className="fas fa-search fa-2x"></i></button>
                         </div>
 
