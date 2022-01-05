@@ -61,7 +61,7 @@ export default class RacingBar extends Component {
         return data;
     }
 
-    sortData(data) { 
+    sortData(data, round) { 
         const {count} = this.props 
         let backgroundColor = this.state.chart.backgroundColor.slice(0, count);
         let borderColor = this.state.chart.borderColor.slice(0, count);
@@ -97,7 +97,8 @@ export default class RacingBar extends Component {
             sortedBorderColors.push(sorted[j]['borderColor'])
             sortedDatasets.push(sorted[j]['dataset'])
         }
-        this.setState({ chart: { data: sortedData, labels: sortedLabels, backgroundColor: sortedBackgroundColors, borderColor: sortedBorderColors, datasets: sortedDatasets } }) 
+
+        this.setState({ timestamp: this.manageTimestamp(round), chart: { data: sortedData, labels: sortedLabels, backgroundColor: sortedBackgroundColors, borderColor: sortedBorderColors, datasets: sortedDatasets } }) 
     }
 
     manageTimestamp(round) {
@@ -124,7 +125,7 @@ export default class RacingBar extends Component {
             '2021 Q4', 
         ];
 
-        this.setState({ timestamps: timestamps[round] })
+       return timestamps[round];
     }
 
 
@@ -183,7 +184,7 @@ export default class RacingBar extends Component {
         for (let round = 0; round < 20; round++) {
             setTimeout(() => {
                 let data = pointerToThis.createDataFromState(round) //grabs the data array from props 
-                pointerToThis.sortData(data) //creates the sorted data and sets the state 
+                pointerToThis.sortData(data, round) //creates the sorted data and sets the state 
             }, round * 2000)
         }
     }
@@ -192,6 +193,9 @@ export default class RacingBar extends Component {
         const {racingBar} = this.props;
         return (
             <div className='racing-bar-container'>
+                <div className='timestamp-container'>
+                    {this.state.timestamp}
+                </div>
                 {racingBar.stocks ? <Bar 
                         data={{
                             labels: this.state.chart.labels, //labels for stock names - ticker

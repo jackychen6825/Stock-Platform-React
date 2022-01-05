@@ -390,3 +390,19 @@ table {
 .explanations-container div {
     width: 100%;
 }
+
+.timestamp-container {
+    position: absolute;
+    top: 35vh;
+    right: 6vw;
+    font-family: "Merriweather", serif;
+    font-size: 30px;
+    z-index: 10;
+    background-color: #B1A296;
+    height: fit-content;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+}
