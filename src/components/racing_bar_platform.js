@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import RacingBarContainer from './racing-bar-container'
+import Timestamp from './timestamp'
 
 export default class RacingBarPlatform extends Component {
     constructor(props) {
@@ -136,6 +137,7 @@ export default class RacingBarPlatform extends Component {
                     { this.state.render ? <button onClick={this.clear} className='begin-race-btn'>Clear</button> : <button onClick={this.handleRace} className='begin-race-btn'>Begin Race</button> }
                 </div>
                 {this.state.render ? <RacingBarContainer stock1={this.state.stock1} stock2={this.state.stock2} stock3={this.state.stock3} stock4={this.state.stock4} stock5={this.state.stock5} /> : ""} 
+                {this.state.render ? <Timestamp /> : ""} 
             </div>
         )
     }

@@ -11,17 +11,19 @@ export default class RacingBar extends Component {
         this.reference = React.createRef();
         this.datasets = [];
 
+        //binding functions 
         this.createDataFromState = this.createDataFromState.bind(this); 
         this.beginRace = this.beginRace.bind(this);
         this.sortData = this.sortData.bind(this);
-        this.manageTimestamp = this.manageTimestamp.bind(this); 
     }
 
+    //when component mounts fetch api data
     componentDidMount() {
         const { getRacingBarData, stock1, stock2, stock3, stock4, stock5 } = this.props;
         getRacingBarData(stock1, stock2, stock3, stock4, stock5)
     }
 
+    //create each iterations data array 
     createDataFromState(round) {
         const { count } = this.props;
         const data = [];
@@ -43,6 +45,7 @@ export default class RacingBar extends Component {
         return data;
     }
 
+    //sort all the information in ascending order, set to the chart, and update chart 
     sortData(data) { 
         const {count} = this.props;
         const chart = this.reference.current;
@@ -91,34 +94,7 @@ export default class RacingBar extends Component {
         chart.update()
     }
 
-    manageTimestamp(round) {
-        const timestamps = [
-            '2017 Q1', 
-            '2017 Q2', 
-            '2017 Q3', 
-            '2017 Q4', 
-            '2018 Q1', 
-            '2018 Q2', 
-            '2018 Q3', 
-            '2018 Q4', 
-            '2019 Q1', 
-            '2019 Q2', 
-            '2019 Q3', 
-            '2019 Q4', 
-            '2020 Q1', 
-            '2020 Q2', 
-            '2020 Q3', 
-            '2020 Q4', 
-            '2021 Q1', 
-            '2021 Q2', 
-            '2021 Q3', 
-            '2021 Q4', 
-        ];
-
-       return timestamps[round];
-    }
-
-
+    //when api response returns set the datasets array to the response for sorting and alignment 
     componentDidUpdate(prevProps) {
         const { racingBar, stock1, stock2, stock3, stock4, stock5 } = this.props;
         const datasets = [];
@@ -148,6 +124,7 @@ export default class RacingBar extends Component {
         }
     }
 
+    //execute the race 
     beginRace() {
         const that = this; 
         for (let round = 0; round < 20; round++) {
@@ -162,8 +139,6 @@ export default class RacingBar extends Component {
         const { racingBar, stock1, stock2, stock3, stock4, stock5 } = this.props;
         return (
             <div className='racing-bar-container'>
-                <div className='timestamp-container'>
-                </div>
                 {racingBar.stocks ? <Bar 
                         ref={this.reference}
                         data={{
