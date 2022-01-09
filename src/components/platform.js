@@ -74,9 +74,9 @@ export default class Platform extends Component {
         return (
             <div className='platform-container'>
                 <div className='about-me'>
-                    <a href="https://www.linkedin.com/in/jacky-chen6825/"><i class="fab fa-linkedin fa-2x"></i></a>
-                    <a href="https://github.com/jackychen6825"><i class="fab fa-github-alt fa-2x"></i></a>
-                    <a href="https://angel.co/u/jacky-chen-33"><i class="fab fa-angellist fa-2x"></i></a>
+                    <a href="https://www.linkedin.com/in/jacky-chen6825/"><i className="fab fa-linkedin fa-2x"></i></a>
+                    <a href="https://github.com/jackychen6825"><i className="fab fa-github-alt fa-2x"></i></a>
+                    <a href="https://angel.co/u/jacky-chen-33"><i className="fab fa-angellist fa-2x"></i></a>
                 </div>
                 <div className='warning'>
                     Hello, due to API  restrictions, users must wait one minute between searchs and races. Thanks!
