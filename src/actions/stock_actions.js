@@ -1,9 +1,10 @@
-import { fetchStockOpenCloseDaily, fetchStockEarnings, fetchStockCapitalStructure, fetchFreeCashFlow } from "../util/stock_api_util"
+import { fetchStockOpenCloseDaily, fetchStockEarnings, fetchStockCapitalStructure, fetchFreeCashFlow, fetchCompanyOverview } from "../util/stock_api_util"
 
 export const OPEN_CLOSE = 'OPEN_CLOSE'
 export const EARNINGS = 'EARNINGS'
 export const CAPITAL_STRUCTURE = 'CAPITAL_STRUCTURE'
 export const FCF = 'FCF'
+export const OVERVIEW = 'OVERVIEW'
 
 const receiveOpenClose = data => ({
     type: OPEN_CLOSE,
@@ -23,6 +24,11 @@ const receiveCapStructure = data => ({
 const receiveFreeCashFlow = data => ({
     type: FCF, 
     data
+})
+
+const receiveOverview = payload => ({
+    type: OVERVIEW,
+    payload
 })
 
 export const getStockOpenCloseDaily = ticker => dispatch => {
@@ -105,3 +111,14 @@ export const getFreeCashFlow = ticker => dispatch => {
             dispatch(receiveFreeCashFlow(parsed))
         })
 }
+
+export const getCompanyOverview = ticker => dispatch => {
+    fetchCompanyOverview(ticker)
+        .then(res => {
+            
+            let name = res.Name;
+            let description = res.Description;
+            const parsed = { name, description };
+            dispatch(receiveOverview(parsed));
+        })
+};

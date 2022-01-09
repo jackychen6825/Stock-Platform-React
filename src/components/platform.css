@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Merriweather&family=Open+Sans:wght@300&family=Playfair+Display&family=Roboto:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Merriweather&family=Mukta:wght@300&family=Open+Sans:wght@300&family=Playfair+Display&family=Roboto:wght@300;500&display=swap');
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -138,7 +139,7 @@ table {
 .racing-bar-container {
     width: 98vw;
     border: 1px solid lightgrey;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
     margin: 10px;
     background-color: white;
@@ -147,17 +148,47 @@ table {
 .price-history-chart-container {
     width: 95vw;
     border: 1px solid lightgrey;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
     margin: 10px;
     background-color: white;
     transition: box-shadow 1s, width 1s, height 1s;
 }
 
+.overview-container {
+    padding: 10px 15px;
+    width: 95vw;
+    /* border: 1px solid lightgrey; */
+    border-radius: 5px;
+    /* box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5);  */
+    margin: 10px;
+    background-color: white;
+    transition: box-shadow 1s, width 1s, height 1s;
+}
+
+.name-container {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.description-container {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
 .earnings-chart-container {
     width: 95vw;
     border: 1px solid lightgrey;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
     margin: 10px;
     background-color: white;
@@ -167,7 +198,7 @@ table {
 .balance-sheet-container {
     width: 95vw;
     border: 1px solid lightgrey;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
     margin: 10px;
     background-color: white;

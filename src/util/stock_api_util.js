@@ -19,3 +19,8 @@ export const fetchFreeCashFlow = ticker => (
     fetch(`https://www.alphavantage.co/query?function=CASH_FLOW&symbol=${ticker}&apikey=${API_KEY}`)
         .then(res => res.json())
 )
+
+export const fetchCompanyOverview = ticker => (
+    fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=${API_KEY}`)
+        .then(res => res.json())
+)

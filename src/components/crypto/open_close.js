@@ -38,6 +38,8 @@ export default class OpenCloseChart extends Component {
                             data: this.props.cryptoCurrency.closes.reverse(),
                         }]
                     }}
+
+                    
                 /> : "" }
             </div>
         )

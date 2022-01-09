@@ -5,6 +5,7 @@ import balanceSheet from './capital_structure_reducer';
 import freeCashFlow from './free_cash_flow_reducer';
 import cryptoCurrency from './crypto_reducer';
 import racingBar from './racing_bar_reducer';
+import overview from './overview_reducer';
 
 const rootReducer = combineReducers({
     priceHistory,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     freeCashFlow,
     cryptoCurrency,
     racingBar,
+    overview,
 })
 
 export default rootReducer;
