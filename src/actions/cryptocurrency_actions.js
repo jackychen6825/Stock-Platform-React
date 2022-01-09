@@ -15,6 +15,7 @@ export const getCryptoExchangeInfo = ticker => dispatch => {
             const closes = []
             const volumes = []
             const marketCap = []
+            const name = response["Meta Data"]["3. Digital Currency Name"]
 
             for (const date in response["Time Series (Digital Currency Weekly)"]) {
                 dates.push(date)
@@ -24,7 +25,7 @@ export const getCryptoExchangeInfo = ticker => dispatch => {
                 marketCap.push(response["Time Series (Digital Currency Weekly)"][date]["6. market cap (USD)"])
             }
 
-            const parsed = { dates, opens, closes, volumes, marketCap };
+            const parsed = { dates, opens, closes, volumes, marketCap, name };
             dispatch(receiveCrypto(parsed))
         })
 }

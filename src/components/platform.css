@@ -172,7 +172,18 @@ table {
     display: flex;
     font-family: 'Playfair Display', serif;
     font-size: 28px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.name-container-crypto {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     font-weight: bold;
 }
 
@@ -261,7 +272,7 @@ table {
 
 #racing-input {
     width: 25vw;
-    height: 40px;
+    height: 50px;
     border: 1px solid lightgrey;
     border-radius: 5px;
     font-family: 'Merriweather', serif;
@@ -276,7 +287,7 @@ table {
 
 .racing-form-btn {
     background-color: #B1A296;
-    height: 44px;
+    height: 54px;
     width: 100px;
     border: 1px solid #B1A296;
     border-radius: 5px;
@@ -318,6 +329,7 @@ table {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
 }
 
 .stock-text {

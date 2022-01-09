@@ -88,16 +88,16 @@ export default class RacingBarPlatform extends Component {
                     <div className='instructions-container-bonus'>
                             <div className='instructions-header-2'>Instructions: </div> 
                             <div>1. Warning: Users can only race up to five stocks at a time </div> 
-                            <div>2. Enter stock ticker and press the "Add Stock" button to enter stock  the race </div> 
+                            <div>2. Enter stock ticker and press the "Add Stock" button to enter the stock into the race </div> 
                             <div>3. Remove any stock from the race by pressing the red X adjoining each stock </div> 
                     </div>
                     <div className='explanations-container'>
                             <div className='instructions-header-2'>Explanation: </div> 
-                            <div>1. The race will be displayed in a racing bar chart </div> 
-                            <div>2. Each stock is racing based on its reported and estiamted earnings as a percentage </div> 
+                            <div>1. The race will be displayed as a racing bar chart </div> 
+                            <div>2. Each stock is racing based on its reported and estimated earnings as a percentage </div> 
                             <div>3. The chart will cover 20 quaters (5 years) of data for each stock </div> 
                             <div>4. Each stock's position in the race is a function of its earnings performance relative to others </div> 
-                            <div>5. The highest performing stock of each quarter will be at the bottom </div> 
+                            <div>5. The highest performing stock of each quarter will be at the top </div> 
                     </div>
                 </div>
             )
@@ -108,9 +108,9 @@ export default class RacingBarPlatform extends Component {
         return (
             <div className='racing-platform'>
                  <div className='about-me-bonus'>
-                    <a href="https://www.linkedin.com/in/jacky-chen6825/"><i class="fab fa-linkedin fa-2x"></i></a>
-                    <a href="https://github.com/jackychen6825"><i class="fab fa-github-alt fa-2x"></i></a>
-                    <a href="https://angel.co/u/jacky-chen-33"><i class="fab fa-angellist fa-2x"></i></a>
+                    <a href="https://www.linkedin.com/in/jacky-chen6825/"><i className="fab fa-linkedin fa-2x"></i></a>
+                    <a href="https://github.com/jackychen6825"><i className="fab fa-github-alt fa-2x"></i></a>
+                    <a href="https://angel.co/u/jacky-chen-33"><i className="fab fa-angellist fa-2x"></i></a>
                 </div>
                 <div className='warning'>
                     Due to API restrictions, users can only race once per minute. 

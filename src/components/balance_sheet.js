@@ -26,17 +26,17 @@ export default class BalanceSheet extends Component {
                 {this.props.balanceSheet.dates ? <Bar 
                     data={{
                         datasets: [{
-                            label: 'Assets (Quarterly)',
+                            label: 'Assets (Quarterly) in Billions',
                             data: this.props.balanceSheet.assets.reverse(),
                             borderColor: 'rgba(255, 99, 132, 0.6)',
                             backgroundColor: 'rgba(255, 99, 132, 0.2)', 
                         }, {
-                            label: 'Liabilites (Quarterly)',
+                            label: 'Liabilites (Quarterly) in Billions',
                             data: this.props.balanceSheet.liabilities.reverse(),
                             borderColor: 'rgba(54, 162, 235, 0.6)',
                             backgroundColor: 'rgba(54, 162, 235, 0.2)',
                         }, {
-                            label: "Shareholder's Equity (Quarterly)",
+                            label: "Shareholder's Equity (Quarterly) in Billions",
                             data: this.props.balanceSheet.shareholderEquity.reverse(),
                             borderColor: 'rgba(175, 238, 238, 0.6)',
                             backgroundColor: 'rgba(175, 238, 238, 0.2)',

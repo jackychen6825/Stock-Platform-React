@@ -14,13 +14,6 @@ export default class PriceHistoryChart extends Component {
         this.props.getStockOpenCloseDaily(this.props.ticker)
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if (prevProps !== this.props) {
-    //         const bool = this.state.render
-    //         this.setState({ render: !bool })
-    //     }
-    // }
-
     componentDidUpdate(prevProps) {
         if (this.props.ticker !== prevProps.ticker) {
             this.props.getStockOpenCloseDaily(this.props.ticker)

@@ -80,9 +80,15 @@ export const getStockCapitalStructure = ticker => dispatch => {
             //parsing data 
             for (const quartlyReport of data["quarterlyReports"]) {
                 dates.push(quartlyReport["fiscalDateEnding"])
-                assets.push(quartlyReport['totalAssets'])
-                liabilities.push(quartlyReport['totalLiabilities'])
-                shareholderEquity.push(quartlyReport['totalShareholderEquity'])
+                assets.push(
+                    parseFloat(quartlyReport['totalAssets']) / 1000000000
+                )
+                liabilities.push(
+                    parseFloat(quartlyReport['totalLiabilities']) / 1000000000
+                )
+                shareholderEquity.push(
+                    parseFloat(quartlyReport['totalShareholderEquity']) / 1000000000
+                )
             }
 
             const parsed = { dates, assets, liabilities, shareholderEquity }
@@ -101,10 +107,14 @@ export const getFreeCashFlow = ticker => dispatch => {
             for (const quartlyReport of data["quarterlyReports"]) {
                 dates.push(quartlyReport["fiscalDateEnding"])
                 freeCashFlow.push(
-                    parseFloat(quartlyReport["operatingCashflow"]) - parseFloat(quartlyReport["capitalExpenditures"])
+                    (parseFloat(quartlyReport["operatingCashflow"]) - parseFloat(quartlyReport["capitalExpenditures"])) / 1000000
                 )
-                operatingCashflow.push(quartlyReport["operatingCashflow"])
-                capEx.push(quartlyReport["capitalExpenditures"])
+                operatingCashflow.push(
+                    parseFloat(quartlyReport["operatingCashflow"]) / 1000000
+                )
+                capEx.push(
+                    parseFloat(quartlyReport["capitalExpenditures"]) / 1000000
+                )
             }
 
             const parsed = { dates, freeCashFlow, operatingCashflow, capEx }
