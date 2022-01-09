@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Bar } from 'react-chartjs-2'
-import Chart from 'chart.js/auto'
 
 export default class Earnings extends Component {
     constructor(props) {

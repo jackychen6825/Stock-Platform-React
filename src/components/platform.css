@@ -405,3 +405,49 @@ table {
     color: white;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
 }
+
+.about-me {
+    position: absolute;
+    top: 6.5%;
+    left: 43%;
+    width: 15vw;
+    justify-content: space-evenly;
+    display: flex;
+    z-index: 10;
+
+}
+
+.about-me-bonus {
+    position: absolute;
+    top: 6.5%;
+    left: 0%;
+    width: 15vw;
+    justify-content: space-evenly;
+    display: flex;
+    z-index: 10;
+
+}
+
+.fab.fa-linkedin.fa-2x {
+    color: #557A95;
+}
+
+.fab.fa-github-alt.fa-2x {
+color: #557A95;
+}
+
+.fab.fa-angellist.fa-2x {
+color: #557A95;
+}
+
+.fab.fa-linkedin.fa-2x:hover {
+    color: #7395AE;
+}
+
+.fab.fa-github-alt.fa-2x:hover {
+color: #7395AE;
+}
+
+.fab.fa-angellist.fa-2x:hover {
+color: #7395AE;
+}

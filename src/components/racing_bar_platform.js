@@ -107,6 +107,11 @@ export default class RacingBarPlatform extends Component {
     render() {
         return (
             <div className='racing-platform'>
+                 <div className='about-me-bonus'>
+                    <a href="https://www.linkedin.com/in/jacky-chen6825/"><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a href="https://github.com/jackychen6825"><i class="fab fa-github-alt fa-2x"></i></a>
+                    <a href="https://angel.co/u/jacky-chen-33"><i class="fab fa-angellist fa-2x"></i></a>
+                </div>
                 <div className='warning'>
                     Due to API restrictions, users can only race once per minute. 
                 </div>
