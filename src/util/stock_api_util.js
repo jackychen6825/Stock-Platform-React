@@ -1,8 +1,8 @@
 const API_KEY = 'P1DMDN3WM6XI3J4E';
 
-export const fetchStockOpenCloseDaily = ticker => (
+export const fetchStockOpenCloseDaily = ticker => ( //fetch the http request with the built in fetch function and use .then to do something upon completion of this function 
     fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${ticker}&apikey=${API_KEY}`)
-        .then(response => response.json())
+        .then(response => response.json()) //turn the response into a json javascript obj notion -> also takes time 
 )
 
 export const fetchStockEarnings = ticker => (
