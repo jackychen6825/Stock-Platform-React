@@ -6,3 +6,14 @@ export const fetchRealGDP = interval => (
         .catch(err => console.error(err))
 )
 
+export const fetchInflationNumbers = () => (
+    fetch(`https://www.alphavantage.co/query?function=INFLATION&apikey=${API_KEY}`)
+        .then(res => res.json())
+        .catch(err => console.error(err))
+)
+
+export const fetchUnemploymentNumbers = () => (
+    fetch(`https://www.alphavantage.co/query?function=UNEMPLOYMENT&apikey=${API_KEY}`)
+        .then(res => res.json())
+        .catch(err => console.error(err))
+)

@@ -67,21 +67,20 @@ export default function GrossDomesticProduct() {
 
     return (
         <div className='price-history-chart-container'>
-            
-                {dates ? <Line 
-                    data={{
-                        labels: dates,
-                        datasets: [{
-                            label: 'Real GDP (Trillions)',
-                            borderColor: 'rgba(54, 162, 235, 0.5)',
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                            data: values,
-                            pointStyle: 'circle',
-                            pointRadius: 8,
-                            pointHoverRadius: 12
-                        }]
-                    }}
-                /> : "" }
+            {dates ? <Line 
+                data={{
+                    labels: dates,
+                    datasets: [{
+                        label: 'Real GDP (Trillions)',
+                        borderColor: 'rgba(54, 162, 235, 0.5)',
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        data: values,
+                        pointStyle: 'circle',
+                        pointRadius: 8,
+                        pointHoverRadius: 12
+                    }]
+                }}
+            /> : "" }
 
             <div className="time-btn-container">
                 {
