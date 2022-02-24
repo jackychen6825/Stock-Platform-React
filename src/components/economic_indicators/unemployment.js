@@ -38,7 +38,7 @@ export default function Unemployment() {
     }, []) //only do this upon mounting so no dependencies 
 
     return (
-        <div className='price-history-chart-container'>
+        <div>
             {dates ? <Line 
                 data={{
                     labels: dates,

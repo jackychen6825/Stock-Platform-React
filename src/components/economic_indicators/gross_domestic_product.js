@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, useState } from 'react'; 
 import { fetchRealGDP } from "../../util/economic_api_util";
-import { Line, Bar } from 'react-chartjs-2'
-import Chart from 'chart.js/auto'
+import { Line } from 'react-chartjs-2';
+import Chart from 'chart.js/auto';
 
 // function economicReducer(state, action) {
 //     switch (action.type) {
@@ -66,7 +66,7 @@ export default function GrossDomesticProduct() {
     }, [timeHorizon]) //each time timeHorizon changes, fetch the information again 
 
     return (
-        <div className='price-history-chart-container'>
+        <div>
             {dates ? <Line 
                 data={{
                     labels: dates,

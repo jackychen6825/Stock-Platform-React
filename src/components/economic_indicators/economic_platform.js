@@ -1,6 +1,7 @@
 import React from 'react';
 import GrossDomesticProduct from './gross_domestic_product';
 import Unemployment from './unemployment';
+import Inflation from './inflation';
 
 export default function EconomicPlatform() {
 
@@ -18,6 +19,7 @@ export default function EconomicPlatform() {
             <div className='economic-charts-container'>
                 <GrossDomesticProduct />
                 <Unemployment />
+                <Inflation />
             </div>
         </div>
     )
