@@ -8,6 +8,8 @@ import VolumeChartContainer from './crypto/volume_container'
 import FreeCashFlowContainer from './free_cash_flow_container'
 import OverviewContainer from './overview';
 import Name from './crypto/name';
+import GrossDomesticProduct from './economic_indicators/gross_domestic_product';
+
 import './platform.css'
 
 export default class Platform extends Component {
@@ -23,6 +25,7 @@ export default class Platform extends Component {
         this.handleSwitchToRace = this.handleSwitchToRace.bind(this);
         this.generateInstructionsFromState = this.generateInstructionsFromState.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleSwitchToEconomics = this.handleSwitchToEconomics.bind(this);
     }
 
     onClick(e) {
@@ -34,6 +37,8 @@ export default class Platform extends Component {
     handleChange(e) {
         this.setState({ ticker: e.target.value })
     }
+
+    //this is the handle switch func that switches between stocks and cryptos, i now wish to add an economic value to it
 
     handleSwitch(e) {
         e.preventDefault()
@@ -47,6 +52,11 @@ export default class Platform extends Component {
     handleSwitchToRace(e) {
         e.preventDefault()
         this.props.history.push("/racing") //render the racing component
+    }
+
+    handleSwitchToEconomics(e) {
+        e.preventDefault()
+        this.props.history.push("/economics") //render the economics component
     }
 
     generateInstructionsFromState() {
@@ -99,6 +109,7 @@ export default class Platform extends Component {
                         <div className='switch-btn-container'> 
                             {this.state.assetClass === 'stock' ? <button className='switch-btn' onClick={this.handleSwitch}>Search Crypto</button> : <button className='switch-btn' onClick={this.handleSwitch}>Search Stock</button>}
                             <button onClick={this.handleSwitchToRace} className='switch-racing-btn'>Bonus</button>
+                            <button onClick={this.handleSwitchToEconomics} className="switch-racing-btn">Economic Indicators</button>
                         </div>
                     </div>
                 </form>
