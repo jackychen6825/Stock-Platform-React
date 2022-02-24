@@ -494,3 +494,16 @@ color: #7395AE;
 .fab.fa-angellist.fa-2x:hover {
 color: #7395AE;
 }
+
+/* economics styles */
+
+.economic-charts-container {
+    position: absolute;
+    top: 12vh;
+}
+
+.time-btn-container {
+    position: absolute;
+    top: 3vh;
+    left: 5vw;
+}

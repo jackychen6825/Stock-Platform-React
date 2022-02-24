@@ -107,7 +107,7 @@ export default class RacingBarPlatform extends Component {
     render() {
         return (
             <div className='racing-platform'>
-                 <div className='about-me-bonus'>
+                <div className='about-me-bonus'>
                     <a href="https://www.linkedin.com/in/jacky-chen6825/" target="_blank"><i className="fab fa-linkedin fa-2x"></i></a>
                     <a href="https://github.com/jackychen6825" target="_blank"><i className="fab fa-github-alt fa-2x"></i></a>
                     <a href="https://angel.co/u/jacky-chen-33" target="_blank"><i className="fab fa-angellist fa-2x"></i></a>

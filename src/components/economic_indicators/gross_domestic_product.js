@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer, useState } from 'react'; 
 import { fetchRealGDP } from "../../util/economic_api_util";
-import { Line } from 'react-chartjs-2'
+import { Line, Bar } from 'react-chartjs-2'
 import Chart from 'chart.js/auto'
 
 // function economicReducer(state, action) {
@@ -16,7 +16,7 @@ import Chart from 'chart.js/auto'
 
 export default function GrossDomesticProduct() {
 
-    const [timeHorizon, setTimeHorizon] = useState("annual");
+    var [timeHorizon, setTimeHorizon] = useState("annual");
     //here we also have to make use of the useReducer functinon  
     // const [economics, dispatch] = useReducer(economicReducer, {});
 
@@ -28,9 +28,7 @@ export default function GrossDomesticProduct() {
         fetchRealGDP(timeHorizon) //asynchronous function takes time to resolve
             .then(
                 res => {
-                    //we are going to need to parse this response --
-                    console.log(res); //want to see how it looks like first
-                    const { name, data } = res; 
+                    const { data } = res; 
 
                     let parsedDate = [], 
                         parsedValues = [];
@@ -42,28 +40,54 @@ export default function GrossDomesticProduct() {
                         }
                     })
 
-                    //remember that data is an array with this structure:
-                    //[{ date: "", value: "" }]
+                    if (timeHorizon === "annual") {
+                        setDates(parsedDate.slice(0, 20).reverse().map(
+                            date => date.slice(0, 4)
+                        ))
+                        setValues(parsedValues.slice(0, 20).reverse().map(
+                            value => value / 1000
+                        ))
+                    } else {
+                        let count = 1
+                        let adjusted = parsedDate.slice(0, 48).reverse();
+                        for (let i = 0; i < adjusted.length; i++) {
+                            if (count > 4) count = 1;
+                            adjusted[i] = `${adjusted[i].slice(0, 4)} - Q${count}`
+                            count++
+                        }
 
-                    setDates(parsedDate)
-                    setValues(parsedValues)
+                        setDates(adjusted)
+                        setValues(parsedValues.slice(0, 48).reverse().map(
+                            value => value / 1000
+                        ))
+                    }
                 }
             )
-    }, []) //each time timeHorizon changes, fetch the information again 
+    }, [timeHorizon]) //each time timeHorizon changes, fetch the information again 
 
     return (
         <div className='price-history-chart-container'>
+            
                 {dates ? <Line 
                     data={{
-                        labels: dates.reverse(),
+                        labels: dates,
                         datasets: [{
-                            label: 'Real GDP (Billions)',
-                            borderColor: 'rgb(54, 162, 235)',
-                            backgroundColor: 'rgb(54, 162, 235)',
-                            data: values.reverse(),
+                            label: 'Real GDP (Trillions)',
+                            borderColor: 'rgba(54, 162, 235, 0.5)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            data: values,
+                            pointStyle: 'circle',
+                            pointRadius: 8,
+                            pointHoverRadius: 12
                         }]
                     }}
                 /> : "" }
+
+            <div className="time-btn-container">
+                {
+                    timeHorizon === "annual" ? <button onClick={() => setTimeHorizon("quarterly")} className="switch-btn">Quarterly</button> : <button onClick={() => setTimeHorizon("annual")} className="switch-btn">Annual</button>
+                }
             </div>
+        </div>
     )
 } 

@@ -8,7 +8,6 @@ import VolumeChartContainer from './crypto/volume_container'
 import FreeCashFlowContainer from './free_cash_flow_container'
 import OverviewContainer from './overview';
 import Name from './crypto/name';
-import GrossDomesticProduct from './economic_indicators/gross_domestic_product';
 
 import './platform.css'
 
