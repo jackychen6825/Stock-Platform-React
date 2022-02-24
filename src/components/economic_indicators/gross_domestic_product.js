@@ -3,17 +3,6 @@ import { fetchRealGDP } from "../../util/economic_api_util";
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 
-// function economicReducer(state, action) {
-//     switch (action.type) {
-//         case "grossDomesticProduct":
-//             return action.payload;
-//             // break;
-//         default:
-//             return state;
-//             // break;
-//     }
-// }
-
 export default function GrossDomesticProduct() {
 
     var [timeHorizon, setTimeHorizon] = useState("annual");
@@ -66,7 +55,7 @@ export default function GrossDomesticProduct() {
     }, [timeHorizon]) //each time timeHorizon changes, fetch the information again 
 
     return (
-        <div>
+        <div className='price-history-chart-container'>
             {dates ? <Line 
                 data={{
                     labels: dates,
@@ -83,9 +72,7 @@ export default function GrossDomesticProduct() {
             /> : "" }
 
             <div className="time-btn-container">
-                {
-                    timeHorizon === "annual" ? <button onClick={() => setTimeHorizon("quarterly")} className="switch-btn">Quarterly</button> : <button onClick={() => setTimeHorizon("annual")} className="switch-btn">Annual</button>
-                }
+                { timeHorizon === "annual" ? <button onClick={() => setTimeHorizon("quarterly")} className="switch-btn">Quarterly</button> : <button onClick={() => setTimeHorizon("annual")} className="switch-btn">Annual</button> }
             </div>
         </div>
     )

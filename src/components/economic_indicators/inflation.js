@@ -29,7 +29,7 @@ export default function Inflation() {
     }, [])
 
     return (
-        <div>
+        <div className='price-history-chart-container'>
             { dates ? <Line 
                 data={{
                     labels: dates,
