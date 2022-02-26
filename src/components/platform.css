@@ -103,6 +103,7 @@ table {
     font-size: 16px;
     cursor: pointer;
     box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+    margin-left: 10px;
 }
 
 .switch-btn-container {
@@ -506,4 +507,26 @@ color: #7395AE;
     position: absolute;
     top: 6.5vh;
     left: 5vw;
+}
+
+.return-home-btn-econ {
+    height: 47px;
+    width: 160px;
+    border: 1px solid #B1A296;
+    border-radius: 5px;
+    background-color:#B1A296;
+    color: white;
+    padding: 5px;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+    margin-right: 10px;
+}
+
+.economic-btn-container {
+    position: absolute;
+    top: 5.5%;
+    right: 3%;
 }
