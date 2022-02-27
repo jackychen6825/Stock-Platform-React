@@ -108,7 +108,7 @@ export default class Platform extends Component {
                         <div className='switch-btn-container'> 
                             <button onClick={this.handleSwitchToRace} className='switch-racing-btn'>Stock Race</button>
                             <button onClick={this.handleSwitchToEconomics} className="switch-racing-btn">Economics</button>
-                            {this.state.assetClass === 'stock' ? <button className='switch-btn' onClick={this.handleSwitch}>Crypto</button> : <button className='switch-btn' onClick={this.handleSwitch}>Search Stock</button>}
+                            {this.state.assetClass === 'stock' ? <button className='switch-btn' onClick={this.handleSwitch}>Crypto</button> : <button className='switch-btn' onClick={this.handleSwitch}>Stock</button>}
                         </div>
                     </div>
                 </form>
