@@ -531,3 +531,29 @@ color: #7395AE;
     top: 5.5%;
     right: 3%;
 }
+
+.show-economics-btn-container {
+    position: absolute;
+    top: 30vh;
+}
+
+.show-economics-btn {
+    height: 70px;
+    width: fit-content;
+    border: 1px solid #7395AE;
+    border-radius: 5px;
+    background-color:#7395AE;
+    color: white;
+    padding: 10px 20px;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: -1px 4px 6px 1px rgba(121, 117, 117, 0.5); 
+    /* margin-right: 10px; */
+}
+
+.show-economics-btn:hover {
+    background-color:#638caa;
+    border: 1px solid #638caa;
+}

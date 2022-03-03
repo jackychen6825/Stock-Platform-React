@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import GrossDomesticProduct from './gross_domestic_product';
 import Unemployment from './unemployment';
 import Inflation from './inflation';
 
 export default function EconomicPlatform() {
+
+    const [state, setState] = useState(false); //we begin with a false state so the button renders 
 
     let history = useHistory();
 
@@ -27,10 +29,17 @@ export default function EconomicPlatform() {
                 <button onClick={returnHome} className='return-home-btn-econ'>Return Home</button>
             </div>
 
+            <div className='show-economics-btn-container'>
+                {state ? "" : <button 
+                    className='show-economics-btn'
+                    onClick={() => setState(state => !state)}
+                >Show Economic Data</button>}
+            </div>
+
             <div className='economic-charts-container'>
-                <GrossDomesticProduct />
-                <Unemployment />
-                <Inflation />
+                {state ? <GrossDomesticProduct /> : ""}
+                {state ? <Unemployment /> : ""}
+                {state ? <Inflation /> : ""}
             </div>
         </div>
     )
